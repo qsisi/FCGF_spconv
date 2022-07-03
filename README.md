@@ -72,6 +72,16 @@ We report **Inlier Ratio**, **Feature Matching Recall** and **Registration Recal
 |     FCGF     |   0.025    |   5k   |        ❌         |  **0.341**   |        **0.956**        |       0.8343        |
 | FCGF_spconv  |   0.025    |   5k   |        ❌         |    0.2889    |          0.928          |     **0.8757**      |
 
+#### Registration Demo
+
+```
+python demo.py
+```
+
+![demo](misc/demo.png)
+
+modify the **src_path**, **tgt_path**, **voxel_size** as well as **n_sample** in demo.py to register your custom point cloud data.
+
 ### Reference
 
 [FCGF](https://github.com/chrischoy/FCGF), [spconv](https://github.com/traveller59/spconv).
