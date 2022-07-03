@@ -1,0 +1,8 @@
+# pytorch
+plyfile
+nibabel
+easydict
+open3d==0.10.0
+scipy
+tensorboardx
+tqdm
