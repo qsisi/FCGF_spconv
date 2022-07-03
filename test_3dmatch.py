@@ -139,7 +139,3 @@ if __name__ == '__main__':
         tot_rr.append(scene_rr)
     print(f'Average Inlier Ratio: {np.mean(tot_ir):.4f}\tFeature Match Recall: {np.mean(tot_fmr):.4f}'
           f'\tRegistration Recall: {np.mean(tot_rr):.4f}')
-
-
-
-
