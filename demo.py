@@ -44,8 +44,8 @@ def spconv_vox(src_pcd, tgt_pcd, voxel_size):
     return src_xyz, tgt_xyz, src_voxels_coords, tgt_voxels_coords, src_shape, tgt_shape
 
 def visualize_registration(src_ply, tgt_ply, pred_trans):
-    src_ply.paint_uniform_color([1, 0, 0])
-    tgt_ply.paint_uniform_color([0, 1, 0])
+    src_ply.paint_uniform_color([0, 0.651, 0.929])
+    tgt_ply.paint_uniform_color([1, 0.706, 0])
     src_ply_wrapped = copy.deepcopy(src_ply)
     src_ply_wrapped.transform(pred_trans)
 
@@ -81,6 +81,10 @@ if __name__ == '__main__':
     src_path = './misc/base_0.ply'
     tgt_path = './misc/base_1.ply'
     voxel_size = 1.0
+
+    # src_path = './misc/gazebo_summer_0.ply'
+    # tgt_path = './misc/gazebo_summer_1.ply'
+    # voxel_size = 0.1
     n_sample = 5000
 
     src_ply = o3d.io.read_point_cloud(src_path)

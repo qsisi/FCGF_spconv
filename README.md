@@ -74,13 +74,15 @@ We report **Inlier Ratio**, **Feature Matching Recall** and **Registration Recal
 
 #### Registration Demo
 
+modify the **src_path**, **tgt_path**, **voxel_size** as well as **n_sample** in demo.py to register your custom point cloud data.
+
 ```
 python demo.py
 ```
 
-![demo](misc/demo.png)
+![demo](misc/gazebo.png)
 
-modify the **src_path**, **tgt_path**, **voxel_size** as well as **n_sample** in demo.py to register your custom point cloud data.
+![demo](misc/base.png)
 
 ### Reference
 
