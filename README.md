@@ -72,7 +72,27 @@ We report **Inlier Ratio**, **Feature Matching Recall** and **Registration Recal
 |     FCGF     |   0.025    |   5k   |        ❌         |  **0.341**   |        **0.956**        |       0.8343        |
 | FCGF_spconv  |   0.025    |   5k   |        ❌         |    0.2889    |          0.928          |     **0.8757**      |
 
-#### Registration Demo
+### Generalization Ability (From 3DMatch -> ETH)
+
+We test the generalization ability of FCGF_spconv on the challenging outdoor dataset ETH, which is acquired by static terrestrial scanners and dominated by outdoor vegetation, such as trees and bushes. Here we compute the **Feature Matching Recall (mutual)** to show the generalization ability.
+
+Download the [ETH](https://drive.google.com/file/d/1hyurp5EOzvWGFB0kOl5Qylx1xGelpxaQ/view) dataset processed by [YOHO](https://github.com/HpWang-whu/YOHO), then run:
+
+```
+python benchmark_ETH.py
+```
+
+|   Method    | Gazebo_summer | Gazebo_winter | Wood_autumn | Wood_summer | Average |
+| :---------: | :-----------: | :-----------: | :---------: | :---------: | :-----: |
+|    FCGF     |     22.8      |     10.0      |    14.8     |    16.8     |  16.1   |
+|   D3Feat    |     85.9      |     63.0      |    49.6     |    48.0     |  56.3   |
+|   SpinNet   |     92.9      |     91.7      |    92.2     |    94.4     |  92.8   |
+|     DIP     |     90.8      |     88.6      |    96.5     |    95.2     |  92.8   |
+| FCGF_spconv |     33.7      |     17.3      |    21.7     |    28.0     |  25.2   |
+
+There is a **HUGE** gap between the **patched-based** and **fully-convolutional** based networks with respect to the generalization ability :(
+
+### Registration Demo
 
 modify the **src_path**, **tgt_path**, **voxel_size** as well as **n_sample** in demo.py to register your custom point cloud data.
 
@@ -86,4 +106,4 @@ python demo.py
 
 ### Reference
 
-[FCGF](https://github.com/chrischoy/FCGF), [spconv](https://github.com/traveller59/spconv).
+[FCGF](https://github.com/chrischoy/FCGF), [spconv](https://github.com/traveller59/spconv), [DIP](https://github.com/fabiopoiesi/dip).
