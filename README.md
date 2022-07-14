@@ -66,11 +66,12 @@ The total training time consumes about:
 
 We report **Inlier Ratio**, **Feature Matching Recall** and **Registration Recall** as three main metrics to compare the FCGF_spconv with the original FCGF:
 
-|   Methods    | Voxel Size | sample | Mutual Selection | Inlier Ratio | Feature Matching Recall | Registration Recall |
-| :----------: | :--------: | :----: | :--------------: | :----------: | :---------------------: | :-----------------: |
-| FCGF (paper) |   0.025    |        |                  |      ~       |          0.952          |        0.82         |
-|     FCGF     |   0.025    |   5k   |        ❌         |  **0.341**   |        **0.956**        |       0.8343        |
-| FCGF_spconv  |   0.025    |   5k   |        ❌         |    0.2889    |          0.928          |     **0.8757**      |
+|             Methods             | Voxel Size | sample | Mutual Selection | Inlier Ratio | Feature Matching Recall | Registration Recall |
+| :-----------------------------: | :--------: | :----: | :--------------: | :----------: | :---------------------: | :-----------------: |
+|          FCGF (paper)           |   0.025    |        |                  |      ~       |          0.952          |        0.82         |
+|              FCGF               |   0.025    |   5k   |        ❌         |  **0.341**   |        **0.956**        |       0.8343        |
+|           FCGF_spconv           |   0.025    |   5k   |        ❌         |    0.2889    |          0.928          |     **0.8757**      |
+| FCGF_spconv (on 3DMatchRotated) |    0.25    |   5k   |        ❌         |    0.0924    |          0.618          |       0.6739        |
 
 ### Generalization Ability (From 3DMatch -> ETH)
 

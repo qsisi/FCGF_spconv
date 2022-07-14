@@ -20,6 +20,7 @@ if __name__ == '__main__':
     parser.add_argument('--root', default=None, type=str, help='path to 3dmatch test set')
     parser.add_argument('--checkpoint',default=None, type=str, help='path to latest checkpoint (default: None)')
     parser.add_argument('--num_workers', type=int, default=0)
+    parser.add_argument('--do_rotated', default=False, action='store_true', help='whether evaluate 3DMatchRotated')
     parser.add_argument('--voxel_size', default=0.025, type=float, help='voxel size to preprocess point cloud')
     parser.add_argument('--num_points', type=int, default=5000, help='Number of random keypoints for each scene')
     parser.add_argument('--mutual', default=False, action='store_true', help="whether to evaluation mutual inlier ratio")

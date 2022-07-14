@@ -154,6 +154,18 @@ class ThreeDMatchTestset(Dataset):
         src_pcd = read_ply(src_path)
         tgt_pcd = read_ply(tgt_path)
 
+        if self.do_rotated:
+            rot_int = 2 * np.pi
+            R1 = Rotation.from_euler('zyx', [random.uniform(0, rot_int),
+                                             random.uniform(0, rot_int),
+                                             random.uniform(0, rot_int)]).as_matrix()
+
+            R2 = Rotation.from_euler('zyx', [random.uniform(0, rot_int),
+                                             random.uniform(0, rot_int),
+                                             random.uniform(0, rot_int)]).as_matrix()
+            src_pcd = (R1 @ src_pcd.T).T
+            tgt_pcd = (R2 @ tgt_pcd.T).T
+
         tsfm = self.gt_logs[scene][f'{int(id1)}@{int(id2)}']
         info = self.gt_infos[scene][f'{int(id1)}@{int(id2)}']
 
@@ -185,6 +197,10 @@ class ThreeDMatchTestset(Dataset):
         tgt_voxels_coords = tgt_voxels_coords[:, [2, 1, 0]]
         src_features = torch.ones((len(src_voxels_coords), 1), dtype=torch.float32)
         tgt_features = torch.ones((len(tgt_voxels_coords), 1), dtype=torch.float32)
+
+        if self.do_rotated:
+            src_voxels_pts = (R1.T @ src_voxels_pts.T).T
+            tgt_voxels_pts = (R2.T @ tgt_voxels_pts.T).T
 
         src_xyz, tgt_xyz = to_tensor(src_voxels_pts).float(), to_tensor(tgt_voxels_pts).float()
 
